@@ -1,0 +1,15 @@
+{
+    "name": "sowmya-portfolio",
+    "version": "1.0.0",
+    "description": "Modern 3D Portfolio for Challa Sowmya",
+    "main": "index.html",
+    "scripts": {
+        "dev": "serve ."
+    },
+    "keywords": [],
+    "author": "Challa Sowmya",
+    "license": "ISC",
+    "devDependencies": {
+        "serve": "^14.2.5"
+    }
+}
