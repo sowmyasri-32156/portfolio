@@ -1,7 +1,14 @@
 /**
- * Challa Sowmya Portfolio - Script
+ * CHALLA SOWMYA PORTFOLIO - CORE ENGINE
  * Tech: Three.js, GSAP, ScrollTrigger
  */
+
+// --- PLUGINS ---
+gsap.registerPlugin(ScrollTrigger);
+
+// --- GLOBAL VARIABLES ---
+let mouseX = 0, mouseY = 0;
+let scene, camera, renderer, particles, mainMesh;
 
 // --- LOADER ---
 window.addEventListener('load', () => {
@@ -9,97 +16,45 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         loader.style.opacity = '0';
         loader.style.visibility = 'hidden';
-        initAnimations();
+        initGSAP(); // Start animations after load
     }, 1500);
 });
 
-// --- VIBRANT PARTICLE CURSOR ---
+// --- CUSTOM CURSOR ---
 const cursorDot = document.getElementById('cursor-dot');
 const cursorOutline = document.getElementById('cursor-outline');
-const particleContainer = document.getElementById('particle-container');
-
-let mouseX = 0;
-let mouseY = 0;
-let dotX = 0;
-let dotY = 0;
-let outlineX = 0;
-let outlineY = 0;
 
 window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 
-    // Create particles on move
-    createParticle(mouseX, mouseY);
+    // Direct movement for the dot
+    gsap.set(cursorDot, { x: mouseX, y: mouseY });
+
+    // Smooth drag for the outline
+    gsap.to(cursorOutline, {
+        x: mouseX,
+        y: mouseY,
+        duration: 0.15,
+        ease: 'power2.out'
+    });
 });
 
-function createParticle(x, y) {
-    const particle = document.createElement('div');
-    particle.className = 'cursor-particle';
-    particleContainer.appendChild(particle);
-
-    const size = Math.random() * 6 + 2;
-    const color = Math.random() > 0.5 ? '#00f2ff' : '#7000ff';
-
-    gsap.set(particle, {
-        x: x,
-        y: y,
-        width: size,
-        height: size,
-        backgroundColor: color,
-        opacity: 0.8
-    });
-
-    gsap.to(particle, {
-        x: x + (Math.random() - 0.5) * 50,
-        y: y + (Math.random() - 0.5) * 50,
-        opacity: 0,
-        scale: 0,
-        duration: Math.random() * 1 + 0.5,
-        ease: "power2.out",
-        onComplete: () => particle.remove()
-    });
-}
-
-function animateCursor() {
-    // Smoother interpolation
-    dotX += (mouseX - dotX) * 1;
-    dotY += (mouseY - dotY) * 1;
-    outlineX += (mouseX - outlineX) * 0.15;
-    outlineY += (mouseY - outlineY) * 0.15;
-
-    gsap.set(cursorDot, { x: dotX, y: dotY });
-    gsap.set(cursorOutline, { x: outlineX, y: outlineY });
-
-    requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-// Hover Effect listeners
-const interactiveElements = document.querySelectorAll('a, button, .glass-card, .skill-card, .social-icon, .project-card');
-interactiveElements.forEach(el => {
+// Hover Effect
+document.querySelectorAll('a, button, .glass-card, .menu-toggle').forEach(el => {
     el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
     el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
 });
 
-// Click animation
-window.addEventListener('mousedown', () => {
-    gsap.to(cursorOutline, { scale: 1.5, opacity: 0.5, duration: 0.2 });
-    for (let i = 0; i < 10; i++) createParticle(mouseX, mouseY); // Burst on click
-});
-window.addEventListener('mouseup', () => {
-    gsap.to(cursorOutline, { scale: 1, opacity: 1, duration: 0.2 });
-});
-
 // --- THREE.JS BACKGROUND ---
-let scene, camera, renderer, sphere, innerSphere, particles;
-
 function initThree() {
     scene = new THREE.Scene();
 
+    // Camera
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
 
+    // Renderer
     renderer = new THREE.WebGLRenderer({
         canvas: document.getElementById('bg-canvas'),
         antialias: true,
@@ -108,76 +63,71 @@ function initThree() {
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // Main Floating Object (Abstract Sphere)
-    const geometry = new THREE.IcosahedronGeometry(2, 2);
+    // Main Floating Object (Wireframe Sphere)
+    const geometry = new THREE.IcosahedronGeometry(2, 4);
     const material = new THREE.MeshBasicMaterial({
         color: 0x00f2ff,
         wireframe: true,
         transparent: true,
-        opacity: 0.2
+        opacity: 0.15
     });
-    sphere = new THREE.Mesh(geometry, material);
-    scene.add(sphere);
-
-    // Second floating object
-    const innerGeo = new THREE.TorusGeometry(1, 0.05, 16, 100);
-    const innerMat = new THREE.MeshBasicMaterial({ color: 0x7000ff, wireframe: true, transparent: true, opacity: 0.3 });
-    innerSphere = new THREE.Mesh(innerGeo, innerMat);
-    scene.add(innerSphere);
+    mainMesh = new THREE.Mesh(geometry, material);
+    scene.add(mainMesh);
 
     // Particle Field
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 4000;
+    const particlesCount = 3000;
     const posArray = new Float32Array(particlesCount * 3);
 
     for (let i = 0; i < particlesCount * 3; i++) {
-        posArray[i] = (Math.random() - 0.5) * 20;
+        posArray[i] = (Math.random() - 0.5) * 15;
     }
 
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
     const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.003,
+        size: 0.005,
         color: 0xffffff,
         transparent: true,
-        opacity: 0.5,
+        opacity: 0.3,
         blending: THREE.AdditiveBlending
     });
 
     particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
 
-    animate();
+    // Light-like behavior for sphere
+    const secondaryGeo = new THREE.SphereGeometry(2.1, 4, 4);
+    const secondaryMat = new THREE.MeshBasicMaterial({
+        color: 0x7000ff,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.05
+    });
+    const secondaryMesh = new THREE.Mesh(secondaryGeo, secondaryMat);
+    mainMesh.add(secondaryMesh);
+
+    animateThree();
 }
 
-function animate() {
-    requestAnimationFrame(animate);
+function animateThree() {
+    requestAnimationFrame(animateThree);
 
-    sphere.rotation.y += 0.002;
-    sphere.rotation.x += 0.001;
+    // Rotating Objects
+    mainMesh.rotation.y += 0.001;
+    mainMesh.rotation.x += 0.0005;
+    particles.rotation.y -= 0.0002;
 
-    if (innerSphere) {
-        innerSphere.rotation.x -= 0.003;
-        innerSphere.rotation.y -= 0.003;
-    }
-
-    particles.rotation.y -= 0.0005;
-
-    // Subtle float based on mouse position - Fixed variable name
+    // Mouse Influence (Floating movement)
     const mX = (mouseX / window.innerWidth - 0.5) * 2;
     const mY = (mouseY / window.innerHeight - 0.5) * 2;
 
-    sphere.position.x += (mX - sphere.position.x) * 0.05;
-    sphere.position.y += (-mY - sphere.position.y) * 0.05;
-
-    if (innerSphere) {
-        innerSphere.position.x += (mX * 0.5 - innerSphere.position.x) * 0.02;
-        innerSphere.position.y += (-mY * 0.5 - innerSphere.position.y) * 0.02;
-    }
+    mainMesh.position.x += (mX * 0.5 - mainMesh.position.x) * 0.05;
+    mainMesh.position.y += (-mY * 0.5 - mainMesh.position.y) * 0.05;
 
     renderer.render(scene, camera);
 }
 
-// Handle Resize
+// Window Resize Handler
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
@@ -185,44 +135,43 @@ window.addEventListener('resize', () => {
 });
 
 // --- GSAP ANIMATIONS ---
-function initAnimations() {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Hero Reveal
-    const tl = gsap.timeline();
-    tl.from('.reveal-text', {
+function initGSAP() {
+    // Hero Entrance
+    const heroTl = gsap.timeline();
+    heroTl.from('.reveal-text', {
         y: 100,
         opacity: 0,
-        duration: 1,
+        duration: 1.2,
         stagger: 0.2,
         ease: 'power4.out'
     });
 
-    // Section Titles
-    gsap.utils.toArray('.section-title').forEach(title => {
-        gsap.from(title, {
+    // Scroll Reveals
+    gsap.utils.toArray('.reveal-on-scroll').forEach(section => {
+        gsap.from(section, {
             scrollTrigger: {
-                trigger: title,
-                start: 'top 80%',
+                trigger: section,
+                start: 'top 85%',
+                toggleActions: 'play none none none'
             },
             y: 50,
             opacity: 0,
             duration: 1,
-            ease: 'back.out(1.7)'
+            ease: 'power2.out'
         });
     });
 
-    // Glass Cards Float
-    gsap.utils.toArray('.glass-card').forEach(card => {
-        gsap.from(card, {
+    // Section Titles Bounce
+    gsap.utils.toArray('.section-title').forEach(title => {
+        gsap.from(title, {
             scrollTrigger: {
-                trigger: card,
-                start: 'top 90%',
+                trigger: title,
+                start: 'top 90%'
             },
-            y: 100,
+            y: 30,
             opacity: 0,
             duration: 0.8,
-            ease: 'power2.out'
+            ease: 'back.out(1.7)'
         });
     });
 
@@ -230,32 +179,17 @@ function initAnimations() {
     gsap.from('.skill-card', {
         scrollTrigger: {
             trigger: '.skills-grid',
-            start: 'top 80%',
+            start: 'top 80%'
         },
-        scale: 0,
+        scale: 0.5,
         opacity: 0,
-        duration: 0.5,
+        duration: 0.6,
         stagger: 0.1,
-        ease: 'back.out(1.7)'
-    });
-
-    // Timeline Animation
-    gsap.from('.timeline-item', {
-        scrollTrigger: {
-            trigger: '.timeline',
-            start: 'top 70%',
-        },
-        x: -100,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
+        ease: 'back.out(1.2)'
     });
 }
 
-// Initialize
-initThree();
-
-// Modal/Tilt logic (Simplified for Vanilla)
+// --- 3D TILT EFFECT (VANILLA) ---
 const cards = document.querySelectorAll('[data-tilt]');
 cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -263,12 +197,13 @@ cards.forEach(card => {
         const x = (e.clientX - left) / width - 0.5;
         const y = (e.clientY - top) / height - 0.5;
 
+        // Smooth rotation based on mouse position relative to card center
         gsap.to(card, {
-            rotationY: x * 30,
-            rotationX: -y * 30,
+            rotationY: x * 20,
+            rotationX: -y * 20,
+            transformPerspective: 1000,
             duration: 0.5,
-            ease: 'power2.out',
-            transformPerspective: 1000
+            ease: 'power2.out'
         });
     });
 
@@ -281,3 +216,25 @@ cards.forEach(card => {
         });
     });
 });
+
+// --- MOBILE MENU ---
+const menuToggle = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+}
+
+// Close menu on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+    });
+});
+
+// --- START ENGINE ---
+initThree();
