@@ -269,11 +269,18 @@ nav {
 
 .hero-content h1 {
     font-family: var(--font-heading);
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 20px;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+}
+
+.hero-content h1 span {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--primary-color);
+    text-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
 }
 
 .hero-content h2 {
@@ -620,6 +627,48 @@ nav {
     background: var(--card-bg);
     align-self: flex-start;
     border-bottom-left-radius: 2px;
+}
+
+/* About Stats */
+.about-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-num {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--primary-color), var(--secondary-color));
+    border-radius: 10px;
 }
 
 /* Responsive */

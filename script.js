@@ -92,7 +92,7 @@ window.addEventListener('mouseup', () => {
 });
 
 // --- THREE.JS BACKGROUND ---
-let scene, camera, renderer, sphere, particles;
+let scene, camera, renderer, sphere, innerSphere, particles;
 
 function initThree() {
     scene = new THREE.Scene();
@@ -119,21 +119,28 @@ function initThree() {
     sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
 
+    // Second floating object
+    const innerGeo = new THREE.TorusGeometry(1, 0.05, 16, 100);
+    const innerMat = new THREE.MeshBasicMaterial({ color: 0x7000ff, wireframe: true, transparent: true, opacity: 0.3 });
+    innerSphere = new THREE.Mesh(innerGeo, innerMat);
+    scene.add(innerSphere);
+
     // Particle Field
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 2000;
+    const particlesCount = 4000;
     const posArray = new Float32Array(particlesCount * 3);
 
     for (let i = 0; i < particlesCount * 3; i++) {
-        posArray[i] = (Math.random() - 0.5) * 15;
+        posArray[i] = (Math.random() - 0.5) * 20;
     }
 
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
     const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.005,
+        size: 0.003,
         color: 0xffffff,
         transparent: true,
-        opacity: 0.8
+        opacity: 0.5,
+        blending: THREE.AdditiveBlending
     });
 
     particles = new THREE.Points(particlesGeometry, particlesMaterial);
@@ -145,17 +152,27 @@ function initThree() {
 function animate() {
     requestAnimationFrame(animate);
 
-    sphere.rotation.y += 0.005;
-    sphere.rotation.x += 0.002;
+    sphere.rotation.y += 0.002;
+    sphere.rotation.x += 0.001;
 
-    particles.rotation.y -= 0.001;
+    if (innerSphere) {
+        innerSphere.rotation.x -= 0.003;
+        innerSphere.rotation.y -= 0.003;
+    }
 
-    // Subtle float based on mouse position
-    const mouseX = (window.innerWidth / 2 - (cursor.getBoundingClientRect().left)) / 1000;
-    const mouseY = (window.innerHeight / 2 - (cursor.getBoundingClientRect().top)) / 1000;
+    particles.rotation.y -= 0.0005;
 
-    sphere.position.x += (mouseX - sphere.position.x) * 0.05;
-    sphere.position.y += (-mouseY - sphere.position.y) * 0.05;
+    // Subtle float based on mouse position - Fixed variable name
+    const mX = (mouseX / window.innerWidth - 0.5) * 2;
+    const mY = (mouseY / window.innerHeight - 0.5) * 2;
+
+    sphere.position.x += (mX - sphere.position.x) * 0.05;
+    sphere.position.y += (-mY - sphere.position.y) * 0.05;
+
+    if (innerSphere) {
+        innerSphere.position.x += (mX * 0.5 - innerSphere.position.x) * 0.02;
+        innerSphere.position.y += (-mY * 0.5 - innerSphere.position.y) * 0.02;
+    }
 
     renderer.render(scene, camera);
 }
