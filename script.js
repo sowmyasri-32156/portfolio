@@ -240,8 +240,8 @@ function initGSAP() {
         });
     });
 
-    // Continuous Floating Micro-Animations
-    gsap.utils.toArray('.skill-card, .project-card-container').forEach(card => {
+    // Continuous Floating Micro-Animations (removed .skill-card to avoid transform overwrite)
+    gsap.utils.toArray('.project-card-container').forEach(card => {
         gsap.to(card, {
             y: "-=15",
             rotation: () => Math.random() * 2 - 1, // subtle twist
