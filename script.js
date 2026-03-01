@@ -225,21 +225,7 @@ function initGSAP() {
         });
     });
 
-    // Skills Stagger per category
-    gsap.utils.toArray('.skill-category').forEach(category => {
-        gsap.from(category.querySelectorAll('.skill-card'), {
-            scrollTrigger: {
-                trigger: category,
-                start: 'top 85%',
-                once: true
-            },
-            scale: 0.5,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'back.out(1.2)'
-        });
-    });
+    // Skills Stagger per category (removed to ensure cards are always visible on all devices/browsers)
 
     // Continuous Floating Micro-Animations (removed .skill-card to avoid transform overwrite)
     gsap.utils.toArray('.project-card-container').forEach(card => {

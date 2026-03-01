@@ -1,0 +1,1604 @@
+﻿commit 76bf47d86e0985af49abc7335699b9af654109cb
+Author: Dipsikha <dipsikhadas912@gmail.com>
+Date:   Sun Mar 1 13:36:50 2026 +0530
+
+    Update portfolio code
+
+diff --git a/index.html b/index.html
+index 3e5eaf4..88041d2 100644
+--- a/index.html
++++ b/index.html
+@@ -4,7 +4,7 @@
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Challa Sowmya | Portfolio</title>
++    <title>Sowmya Challa | Portfolio</title>
+     <!-- Fonts -->
+     <link
+         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+@@ -59,8 +59,9 @@
+             <div class="container hero-container">
+                 <div class="hero-content">
+                     <h2 class="reveal-text">Hello, I'm</h2>
+-                    <h1 class="reveal-text main-title">CHALLA <span>SOWMYA</span></h1>
+-                    <h3 class="reveal-text">2nd-Year Computer Science Student | Full Stack Developer Intern</h3>
++                    <h1 class="reveal-text main-title">SOWMYA <span>CHALLA</span></h1>
++                    <h3 class="reveal-text">2nd-Year Computer Science (AI & ML) Student | Full Stack Developer Intern
++                    </h3>
+                     <p class="reveal-text">Designing the future of web experiences with code and creativity.
+                         Specializing in building scalable, interactive, and intelligent applications.</p>
+                     <div class="hero-btns reveal-text">
+@@ -82,24 +83,26 @@
+                 <div class="about-grid">
+                     <div class="about-card glass-card reveal-on-scroll">
+                         <p>
+-                            Highly motivated **2nd-Year Computer Science student** with a strong foundation in **DSA and
++                            Highly motivated **2nd-Year Computer Science (AI & ML) student** at **GIET University** with
++                            a strong foundation in **DSA and
+                             OOPS** (Java, C).
+                             I am a results-driven individual who thrives on solving complex problems.
+                         </p>
+                         <p>
+                             Experienced in **Full Stack Development** with expertise in HTML, CSS, JavaScript, SQL,
+                             DBMS, and Java backend.
++                            Successfully completed a **Full Stack Internship at Millennium Software Solutions**.
+                             Passionate about building real-world web applications that bridge the gap between
+                             engineering and user experience.
+                         </p>
+                         <div class="about-stats">
+                             <div class="stat-item">
+-                                <span class="stat-num">8.44</span>
++                                <span class="stat-num">8.45</span>
+                                 <span class="stat-label">CGPA</span>
+                             </div>
+                             <div class="stat-item">
+                                 <span class="stat-num">3+</span>
+-                                <span class="stat-label">Minor Projects</span>
++                                <span class="stat-label">Core Projects</span>
+                             </div>
+                             <div class="stat-item">
+                                 <span class="stat-num">1</span>
+@@ -116,45 +119,37 @@
+                 <h2 class="section-title">Tech Arsenal</h2>
+ 
+                 <div class="skills-wrapper">
+-                    <!-- Programming Languages -->
++                    <!-- Programming & Languages -->
+                     <div class="skill-category">
+-                        <h3 class="skill-category-title"><i class="fas fa-code"></i> Programming Languages</h3>
++                        <h3 class="skill-category-title"><i class="fas fa-code"></i> Core & Languages</h3>
+                         <div class="skills-grid">
+-                            <div class="skill-card glass-card" data-tilt>
+-                                <i class="fab fa-java"></i>
+-                                <h3>Java</h3>
+-                            </div>
+                             <div class="skill-card glass-card" data-tilt>
+                                 <i class="fas fa-code"></i>
+                                 <h3>C</h3>
+                             </div>
+                             <div class="skill-card glass-card" data-tilt>
+-                                <i class="fas fa-project-diagram"></i>
+-                                <h3>DSA</h3>
+-                            </div>
+-                            <div class="skill-card glass-card" data-tilt>
+-                                <i class="fas fa-cubes"></i>
+-                                <h3>OOPS</h3>
++                                <i class="fab fa-java"></i>
++                                <h3>Java</h3>
+                             </div>
+                             <div class="skill-card glass-card" data-tilt>
+                                 <i class="fab fa-python"></i>
+                                 <h3>Python</h3>
+                             </div>
+                             <div class="skill-card glass-card" data-tilt>
+-                                <i class="fas fa-brain"></i>
+-                                <h3>ML</h3>
++                                <i class="fas fa-cubes"></i>
++                                <h3>OOPS</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-project-diagram"></i>
++                                <h3>DSA</h3>
+                             </div>
+                         </div>
+                     </div>
+ 
+-                    <!-- Web Development Languages -->
++                    <!-- Web & Advanced -->
+                     <div class="skill-category">
+-                        <h3 class="skill-category-title"><i class="fas fa-globe"></i> Web Development</h3>
++                        <h3 class="skill-category-title"><i class="fas fa-globe"></i> Web & Advanced Tech</h3>
+                         <div class="skills-grid">
+-                            <div class="skill-card glass-card" data-tilt>
+-                                <i class="fab fa-js"></i>
+-                                <h3>JavaScript</h3>
+-                            </div>
+                             <div class="skill-card glass-card" data-tilt>
+                                 <i class="fab fa-html5"></i>
+                                 <h3>HTML</h3>
+@@ -163,6 +158,14 @@
+                                 <i class="fab fa-css3-alt"></i>
+                                 <h3>CSS</h3>
+                             </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fab fa-js"></i>
++                                <h3>JavaScript</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-brain"></i>
++                                <h3>AI and ML</h3>
++                            </div>
+                             <div class="skill-card glass-card" data-tilt>
+                                 <i class="fas fa-database"></i>
+                                 <h3>SQL</h3>
+@@ -171,9 +174,14 @@
+                                 <i class="fas fa-server"></i>
+                                 <h3>DBMS</h3>
+                             </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-layer-group"></i>
++                                <h3>Full Stack</h3>
++                            </div>
+                         </div>
+                     </div>
+                 </div>
++            </div>
+         </section>
+ 
+         <!-- Experience Section -->
+@@ -186,12 +194,12 @@
+                         <div class="glass-card timeline-content">
+                             <span class="date">June 2025 - July 2025</span>
+                             <h3>Full Stack Development Intern</h3>
+-                            <p class="company">Tech Training Program</p>
++                            <p class="company">Millennium Software Solutions</p>
+                             <ul class="timeline-list">
+                                 <li>Built responsive frontends using HTML, CSS, and JS.</li>
+                                 <li>Developed Backend APIs using Java and OOPS principles.</li>
+                                 <li>Managed structured data using SQL and DBMS.</li>
+-                                <li>Actively participated in daily scrums and peer code reviews.</li>
++                                <li>Learned professional workflow and industry best practices.</li>
+                             </ul>
+                         </div>
+                     </div>
+@@ -208,16 +216,17 @@
+                     <div class="project-card-container reveal-on-scroll">
+                         <div class="project-inner">
+                             <div class="project-front">
+-                                <i class="fas fa-heartbeat project-icon"></i>
+-                                <h3>Personalized Health & Diet</h3>
+-                                <p>Health Management System</p>
++                                <i class="fas fa-hospital-user project-icon"></i>
++                                <h3>Medsphere AI</h3>
++                                <p>Queue & Appointment Optimization</p>
+                             </div>
+                             <div class="project-back">
+-                                <h3>Health & Diet Hub</h3>
+-                                <p>A comprehensive platform featuring BMI calculation, personalized diet plans, and
+-                                    exercise tracking.</p>
++                                <h3>Medsphere</h3>
++                                <p>An AI-driven real-time patient queue management system with smart priority assignment
++                                    and doctor load balancing.</p>
+                                 <div class="tech-tags">
+-                                    <span>HTML</span> <span>CSS</span> <span>JavaScript</span>
++                                    <span>React</span> <span>TypeScript</span> <span>Tailwind</span> <span>AI
++                                        Logic</span>
+                                 </div>
+                                 <a href="#" class="btn btn-sm btn-primary">Source Code</a>
+                             </div>
+@@ -228,16 +237,16 @@
+                     <div class="project-card-container reveal-on-scroll">
+                         <div class="project-inner">
+                             <div class="project-front">
+-                                <i class="fas fa-utensils project-icon"></i>
+-                                <h3>Local Food Management</h3>
+-                                <p>Community Support System</p>
++                                <i class="fas fa-comments project-icon"></i>
++                                <h3>SyncChat</h3>
++                                <p>Real-time MERN Experience</p>
+                             </div>
+                             <div class="project-back">
+-                                <h3>Food Management</h3>
+-                                <p>Streamlining food donation and pickup to reduce waste and support local communities.
+-                                </p>
++                                <h3>SyncChat</h3>
++                                <p>A feature-rich real-time chat application with group messaging, user authentication,
++                                    and media sharing support.</p>
+                                 <div class="tech-tags">
+-                                    <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>Java</span>
++                                    <span>MongoDB</span> <span>Express</span> <span>React</span> <span>Socket.IO</span>
+                                 </div>
+                                 <a href="#" class="btn btn-sm btn-primary">Source Code</a>
+                             </div>
+@@ -248,16 +257,16 @@
+                     <div class="project-card-container reveal-on-scroll">
+                         <div class="project-inner">
+                             <div class="project-front">
+-                                <i class="fas fa-comments project-icon"></i>
+-                                <h3>Real-time Chat App</h3>
+-                                <p>Instant Messaging Experience</p>
++                                <i class="fas fa-heartbeat project-icon"></i>
++                                <h3>Health Hub</h3>
++                                <p>Personalized Wellness Portal</p>
+                             </div>
+                             <div class="project-back">
+-                                <h3>Sync Chat</h3>
+-                                <p>A high-performance real-time chat application with web sockets for instant text
+-                                    delivery and status updates.</p>
++                                <h3>Health & Diet Hub</h3>
++                                <p>Comprehensive platform featuring BMI calculation, personalized diet plans, and
++                                    exercise tracking for users.</p>
+                                 <div class="tech-tags">
+-                                    <span>JavaScript</span> <span>Node.js</span> <span>Socket.io</span>
++                                    <span>HTML</span> <span>CSS</span> <span>JavaScript</span>
+                                 </div>
+                                 <a href="#" class="btn btn-sm btn-primary">Source Code</a>
+                             </div>
+@@ -274,9 +283,10 @@
+                 <div class="edu-grid">
+                     <div class="edu-card glass-card reveal-on-scroll">
+                         <i class="fas fa-university"></i>
+-                        <h3>B.Tech CSE</h3>
++                        <h3>B.Tech CSE (AI & ML)</h3>
++                        <p>GIET University, Gunupur</p>
+                         <p>2024 ΓÇô 2028</p>
+-                        <div class="grade">CGPA: 8.44</div>
++                        <div class="grade">CGPA: 8.45</div>
+                     </div>
+                     <div class="edu-card glass-card reveal-on-scroll">
+                         <i class="fas fa-school"></i>
+@@ -353,7 +363,7 @@
+     </main>
+ 
+     <footer class="section-padding">
+-        <p>&copy; 2024 Challa Sowmya. Built with Code and Design.</p>
++        <p>&copy; 2026 Sowmya Challa. Built with Code and Design.</p>
+     </footer>
+ 
+     <!-- Libraries -->
+
+commit 0f92a03528791ce9f0363500488aa1d52c56b448
+Author: saisreekalivarapu <saisreekalivarapu@gmail.com>
+Date:   Sat Feb 28 16:57:41 2026 +0530
+
+    Update portfolio: stats, skills (added Python/ML, removed JDBC), and fixed projects section layout visibility
+
+diff --git a/index.html b/index.html
+index 9c862d0..3e5eaf4 100644
+--- a/index.html
++++ b/index.html
+@@ -4,20 +4,19 @@
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Challa Sowmya | 3D Portfolio</title>
+-    <meta name="description"
+-        content="Professional portfolio of Challa Sowmya, a Creative Developer specializing in Python, AI/ML, and Web Applications.">
+-    <!-- Google Fonts -->
++    <title>Challa Sowmya | Portfolio</title>
++    <!-- Fonts -->
+     <link
+         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+         rel="stylesheet">
+-    <!-- FontAwesome Icons -->
++    <!-- Icons -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+-    <!-- Style CSS -->
++    <!-- CSS -->
+     <link rel="stylesheet" href="style.css">
+ </head>
+ 
+ <body>
++
+     <!-- Loading Screen -->
+     <div id="loader">
+         <div class="loader-content">
+@@ -29,9 +28,8 @@
+     <!-- Custom Cursor -->
+     <div id="cursor-dot"></div>
+     <div id="cursor-outline"></div>
+-    <div id="particle-container"></div>
+ 
+-    <!-- Canvas for Three.js Background -->
++    <!-- Three.js Background -->
+     <canvas id="bg-canvas"></canvas>
+ 
+     <!-- Navigation -->
+@@ -44,79 +42,84 @@
+                 <li><a href="#skills">Skills</a></li>
+                 <li><a href="#experience">Experience</a></li>
+                 <li><a href="#projects">Projects</a></li>
++                <li><a href="#education">Education</a></li>
+                 <li><a href="#contact">Contact</a></li>
+             </ul>
++            <div class="menu-toggle" id="mobile-menu">
++                <span></span>
++                <span></span>
++                <span></span>
++            </div>
+         </div>
+     </nav>
+ 
+     <main>
+         <!-- Hero Section -->
+         <section id="hero" class="hero">
+-            <div class="container">
++            <div class="container hero-container">
+                 <div class="hero-content">
+                     <h2 class="reveal-text">Hello, I'm</h2>
+-                    <h1 class="reveal-text main-title">Challa <span>Sowmya</span></h1>
+-                    <h3 class="reveal-text">Creative Developer & AI Enthusiast</h3>
+-                    <p class="reveal-text">Bridging the gap between complex engineering and stunning visual experiences.
+-                        Specializing in Python, Web Applications, and Machine Learning.</p>
++                    <h1 class="reveal-text main-title">CHALLA <span>SOWMYA</span></h1>
++                    <h3 class="reveal-text">2nd-Year Computer Science Student | Full Stack Developer Intern</h3>
++                    <p class="reveal-text">Designing the future of web experiences with code and creativity.
++                        Specializing in building scalable, interactive, and intelligent applications.</p>
+                     <div class="hero-btns reveal-text">
+-                        <a href="#projects" class="btn btn-primary">Discover My Work</a>
+-                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
++                        <a href="#projects" class="btn btn-primary">View Projects</a>
++                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                     </div>
+                 </div>
+             </div>
+             <div class="scroll-indicator">
+                 <div class="mouse"></div>
+-                <p>Scroll to explore</p>
++                <p>Scroll to Explore</p>
+             </div>
+         </section>
+ 
+         <!-- About Section -->
+         <section id="about" class="about section-padding">
+             <div class="container">
+-                <h2 class="section-title">Beyond The Code</h2>
++                <h2 class="section-title">Career Summary</h2>
+                 <div class="about-grid">
+-                    <div class="about-text glass-card reveal-text">
++                    <div class="about-card glass-card reveal-on-scroll">
+                         <p>
+-                            I am a driven software developer with a deep-rooted passion for **Python and Data-Driven
+-                            Technologies**.
+-                            My core philosophy is centered on building tools that aren't just functional, but also
+-                            provide an intuitive and futuristic user experience.
++                            Highly motivated **2nd-Year Computer Science student** with a strong foundation in **DSA and
++                            OOPS** (Java, C).
++                            I am a results-driven individual who thrives on solving complex problems.
+                         </p>
+                         <p>
+-                            With a strong foundation in **Computer Science fundamentals**, I've spent the last few years
+-                            mastering the art of creating scalable web applications and exploring the transformative
+-                            power of **AI/ML**.
++                            Experienced in **Full Stack Development** with expertise in HTML, CSS, JavaScript, SQL,
++                            DBMS, and Java backend.
++                            Passionate about building real-world web applications that bridge the gap between
++                            engineering and user experience.
+                         </p>
+                         <div class="about-stats">
+                             <div class="stat-item">
+-                                <span class="stat-num">15+</span>
+-                                <span class="stat-label">Projects Completed</span>
++                                <span class="stat-num">8.44</span>
++                                <span class="stat-label">CGPA</span>
+                             </div>
+                             <div class="stat-item">
+-                                <span class="stat-num">12+</span>
+-                                <span class="stat-label">Tech Skills</span>
++                                <span class="stat-num">3+</span>
++                                <span class="stat-label">Minor Projects</span>
+                             </div>
+                             <div class="stat-item">
+-                                <span class="stat-num">100%</span>
+-                                <span class="stat-label">Dedication</span>
++                                <span class="stat-num">1</span>
++                                <span class="stat-label">Internship</span>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+-            </div>
+         </section>
+ 
+         <!-- Skills Section -->
+         <section id="skills" class="skills section-padding">
+             <div class="container">
+-                <h2 class="section-title">Technical Arsenal</h2>
++                <h2 class="section-title">Tech Arsenal</h2>
+ 
+                 <div class="skills-wrapper">
+-                    <!-- Category: Programming Languages -->
++                    <!-- Programming Languages -->
+                     <div class="skill-category">
+-                        <h3 class="category-title"><i class="fas fa-terminal"></i> Programming Languages</h3>
+-                        <div class="category-grid">
++                        <h3 class="skill-category-title"><i class="fas fa-code"></i> Programming Languages</h3>
++                        <div class="skills-grid">
+                             <div class="skill-card glass-card" data-tilt>
+                                 <i class="fab fa-java"></i>
+                                 <h3>Java</h3>
+@@ -125,21 +128,33 @@
+                                 <i class="fas fa-code"></i>
+                                 <h3>C</h3>
+                             </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-project-diagram"></i>
++                                <h3>DSA</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-cubes"></i>
++                                <h3>OOPS</h3>
++                            </div>
+                             <div class="skill-card glass-card" data-tilt>
+                                 <i class="fab fa-python"></i>
+                                 <h3>Python</h3>
+                             </div>
+                             <div class="skill-card glass-card" data-tilt>
+-                                <i class="fab fa-js"></i>
+-                                <h3>JavaScript</h3>
++                                <i class="fas fa-brain"></i>
++                                <h3>ML</h3>
+                             </div>
+                         </div>
+                     </div>
+ 
+-                    <!-- Category: Web Development -->
++                    <!-- Web Development Languages -->
+                     <div class="skill-category">
+-                        <h3 class="category-title"><i class="fas fa-globe"></i> Web Applications</h3>
+-                        <div class="category-grid">
++                        <h3 class="skill-category-title"><i class="fas fa-globe"></i> Web Development</h3>
++                        <div class="skills-grid">
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fab fa-js"></i>
++                                <h3>JavaScript</h3>
++                            </div>
+                             <div class="skill-card glass-card" data-tilt>
+                                 <i class="fab fa-html5"></i>
+                                 <h3>HTML</h3>
+@@ -148,25 +163,6 @@
+                                 <i class="fab fa-css3-alt"></i>
+                                 <h3>CSS</h3>
+                             </div>
+-                            <div class="skill-card glass-card" data-tilt>
+-                                <i class="fab fa-js-square"></i>
+-                                <h3>JS Logic</h3>
+-                            </div>
+-                        </div>
+-                    </div>
+-
+-                    <!-- Category: Core Fundamentals -->
+-                    <div class="skill-category">
+-                        <h3 class="category-title"><i class="fas fa-layer-group"></i> Core Fundamentals</h3>
+-                        <div class="category-grid">
+-                            <div class="skill-card glass-card" data-tilt>
+-                                <i class="fas fa-project-diagram"></i>
+-                                <h3>DSA</h3>
+-                            </div>
+-                            <div class="skill-card glass-card" data-tilt>
+-                                <i class="fas fa-cubes"></i>
+-                                <h3>OOPS</h3>
+-                            </div>
+                             <div class="skill-card glass-card" data-tilt>
+                                 <i class="fas fa-database"></i>
+                                 <h3>SQL</h3>
+@@ -177,49 +173,25 @@
+                             </div>
+                         </div>
+                     </div>
+-
+-                    <!-- Category: AI & Data Science -->
+-                    <div class="skill-category">
+-                        <h3 class="category-title"><i class="fas fa-robot"></i> AI & Data Science</h3>
+-                        <div class="category-grid">
+-                            <div class="skill-card glass-card" data-tilt>
+-                                <i class="fas fa-microchip"></i>
+-                                <h3>ML</h3>
+-                            </div>
+-                            <div class="skill-card glass-card" data-tilt>
+-                                <i class="fas fa-brain"></i>
+-                                <h3>AI</h3>
+-                            </div>
+-                        </div>
+-                    </div>
+                 </div>
+-            </div>
+         </section>
+ 
+         <!-- Experience Section -->
+         <section id="experience" class="experience section-padding">
+             <div class="container">
+-                <h2 class="section-title">Professional Journey</h2>
++                <h2 class="section-title">Work Experience</h2>
+                 <div class="timeline">
+-                    <div class="timeline-item left">
+-                        <div class="glass-card">
+-                            <h3>Full Stack Developer Intern</h3>
+-                            <p class="company">Tech Innovation Labs | 2024 - Present</p>
+-                            <ul class="exp-list">
+-                                <li>Developed responsive frontends using modern JavaScript frameworks.</li>
+-                                <li>Optimized backend queries in SQL for faster data retrieval.</li>
+-                                <li>Collaborated on building a real-time analytics dashboard.</li>
+-                            </ul>
+-                        </div>
+-                    </div>
+-                    <div class="timeline-item right">
+-                        <div class="glass-card">
+-                            <h3>Python Developer Intern</h3>
+-                            <p class="company">AI Solutions Corp | 2023</p>
+-                            <ul class="exp-list">
+-                                <li>Implemented data preprocessing pipelines for ML models.</li>
+-                                <li>Streamlined internal automation scripts using Python.</li>
+-                                <li>Assisted in documenting system architecture for AI deployments.</li>
++                    <div class="timeline-item reveal-on-scroll">
++                        <div class="timeline-dot"></div>
++                        <div class="glass-card timeline-content">
++                            <span class="date">June 2025 - July 2025</span>
++                            <h3>Full Stack Development Intern</h3>
++                            <p class="company">Tech Training Program</p>
++                            <ul class="timeline-list">
++                                <li>Built responsive frontends using HTML, CSS, and JS.</li>
++                                <li>Developed Backend APIs using Java and OOPS principles.</li>
++                                <li>Managed structured data using SQL and DBMS.</li>
++                                <li>Actively participated in daily scrums and peer code reviews.</li>
+                             </ul>
+                         </div>
+                     </div>
+@@ -230,62 +202,64 @@
+         <!-- Projects Section -->
+         <section id="projects" class="projects section-padding">
+             <div class="container">
+-                <h2 class="section-title">Featured Creations</h2>
++                <h2 class="section-title">Recent Creations</h2>
+                 <div class="projects-grid">
+                     <!-- Project 1 -->
+-                    <div class="project-card glass-card">
++                    <div class="project-card-container reveal-on-scroll">
+                         <div class="project-inner">
+                             <div class="project-front">
+-                                <div class="project-img-placeholder"><i class="fas fa-brain"></i></div>
+-                                <h3>Real-time Sentiment Analysis</h3>
+-                                <p>AI-Powered Sentiment Tracking</p>
++                                <i class="fas fa-heartbeat project-icon"></i>
++                                <h3>Personalized Health & Diet</h3>
++                                <p>Health Management System</p>
+                             </div>
+                             <div class="project-back">
+-                                <h3>ML Sentiment Engine</h3>
+-                                <p>A real-time website that detects sentiments from live text inputs using advanced ML
+-                                    models.</p>
+-                                <div class="tech-stack">
+-                                    <span>Python</span> <span>Flask</span> <span>Scikit-Learn</span>
++                                <h3>Health & Diet Hub</h3>
++                                <p>A comprehensive platform featuring BMI calculation, personalized diet plans, and
++                                    exercise tracking.</p>
++                                <div class="tech-tags">
++                                    <span>HTML</span> <span>CSS</span> <span>JavaScript</span>
+                                 </div>
+-                                <a href="#" class="btn btn-primary" style="margin-top:20px;">View Live</a>
++                                <a href="#" class="btn btn-sm btn-primary">Source Code</a>
+                             </div>
+                         </div>
+                     </div>
++
+                     <!-- Project 2 -->
+-                    <div class="project-card glass-card">
++                    <div class="project-card-container reveal-on-scroll">
+                         <div class="project-inner">
+                             <div class="project-front">
+-                                <div class="project-img-placeholder"><i class="fas fa-shopping-cart"></i></div>
+-                                <h3>3D Product Showcase</h3>
+-                                <p>Interactive E-commerce UI</p>
++                                <i class="fas fa-utensils project-icon"></i>
++                                <h3>Local Food Management</h3>
++                                <p>Community Support System</p>
+                             </div>
+                             <div class="project-back">
+-                                <h3>Immersive Shop</h3>
+-                                <p>A futuristic product landing page featuring interactive 3D models and smooth GSAP
+-                                    transitions.</p>
+-                                <div class="tech-stack">
+-                                    <span>Three.js</span> <span>GSAP</span> <span>HTML/CSS</span>
++                                <h3>Food Management</h3>
++                                <p>Streamlining food donation and pickup to reduce waste and support local communities.
++                                </p>
++                                <div class="tech-tags">
++                                    <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>Java</span>
+                                 </div>
+-                                <a href="#" class="btn btn-primary" style="margin-top:20px;">View Live</a>
++                                <a href="#" class="btn btn-sm btn-primary">Source Code</a>
+                             </div>
+                         </div>
+                     </div>
++
+                     <!-- Project 3 -->
+-                    <div class="project-card glass-card">
++                    <div class="project-card-container reveal-on-scroll">
+                         <div class="project-inner">
+                             <div class="project-front">
+-                                <div class="project-img-placeholder"><i class="fas fa-cloud-sun"></i></div>
+-                                <h3>Dynamic Weather Hub</h3>
+-                                <p>Real-time Weather Analytics</p>
++                                <i class="fas fa-comments project-icon"></i>
++                                <h3>Real-time Chat App</h3>
++                                <p>Instant Messaging Experience</p>
+                             </div>
+                             <div class="project-back">
+-                                <h3>Weather Pulse</h3>
+-                                <p>Providing accurate, real-time weather data with dynamic visual backgrounds that react
+-                                    to conditions.</p>
+-                                <div class="tech-stack">
+-                                    <span>JavaScript</span> <span>Weather API</span> <span>CSS3</span>
++                                <h3>Sync Chat</h3>
++                                <p>A high-performance real-time chat application with web sockets for instant text
++                                    delivery and status updates.</p>
++                                <div class="tech-tags">
++                                    <span>JavaScript</span> <span>Node.js</span> <span>Socket.io</span>
+                                 </div>
+-                                <a href="#" class="btn btn-primary" style="margin-top:20px;">View Live</a>
++                                <a href="#" class="btn btn-sm btn-primary">Source Code</a>
+                             </div>
+                         </div>
+                     </div>
+@@ -298,17 +272,47 @@
+             <div class="container">
+                 <h2 class="section-title">Educational Foundation</h2>
+                 <div class="edu-grid">
+-                    <div class="edu-card glass-card">
+-                        <div class="edu-icon"><i class="fas fa-university"></i></div>
+-                        <h3>Bachelor of Technology</h3>
+-                        <p>Computer Science & Engineering</p>
+-                        <p class="grade">CGPA: 9.2/10</p>
++                    <div class="edu-card glass-card reveal-on-scroll">
++                        <i class="fas fa-university"></i>
++                        <h3>B.Tech CSE</h3>
++                        <p>2024 ΓÇô 2028</p>
++                        <div class="grade">CGPA: 8.44</div>
++                    </div>
++                    <div class="edu-card glass-card reveal-on-scroll">
++                        <i class="fas fa-school"></i>
++                        <h3>Class 12</h3>
++                        <p>Higher Secondary</p>
++                        <div class="grade">Percentage: 73.5%</div>
++                    </div>
++                    <div class="edu-card glass-card reveal-on-scroll">
++                        <i class="fas fa-graduation-cap"></i>
++                        <h3>Class 10</h3>
++                        <p>Secondary Education</p>
++                        <div class="grade">Percentage: 81.6%</div>
++                    </div>
++                </div>
++            </div>
++        </section>
++
++        <!-- Achievements Section -->
++        <section id="achievements" class="achievements section-padding">
++            <div class="container">
++                <h2 class="section-title">Key Achievements</h2>
++                <div class="achievements-grid">
++                    <div class="achievement-card glass-card reveal-on-scroll">
++                        <div class="ach-icon"><i class="fas fa-award"></i></div>
++                        <h3>Academic consistency</h3>
++                        <p>Maintained a high CGPA focus throughout undergraduate studies.</p>
+                     </div>
+-                    <div class="edu-card glass-card">
+-                        <div class="edu-icon"><i class="fas fa-school"></i></div>
+-                        <h3>Secondary Education</h3>
+-                        <p>Science & Mathematics</p>
+-                        <p class="grade">Percentage: 95%</p>
++                    <div class="achievement-card glass-card reveal-on-scroll">
++                        <div class="ach-icon"><i class="fas fa-certificate"></i></div>
++                        <h3>Internship completion</h3>
++                        <p>Successfully completed a rigorous Full Stack internship program.</p>
++                    </div>
++                    <div class="achievement-card glass-card reveal-on-scroll">
++                        <div class="ach-icon"><i class="fas fa-rocket"></i></div>
++                        <h3>Project completion</h3>
++                        <p>Delivered functional web solutions with complex feature sets.</p>
+                     </div>
+                 </div>
+             </div>
+@@ -317,55 +321,46 @@
+         <!-- Contact Section -->
+         <section id="contact" class="contact section-padding">
+             <div class="container">
+-                <h2 class="section-title">Start a Conversation</h2>
++                <h2 class="section-title">Let's Connect</h2>
+                 <div class="contact-wrapper">
+-                    <div class="contact-info glass-card">
+-                        <h3>Let's Connect</h3>
+-                        <p style="margin-bottom: 30px;">I'm always open to discussing new projects, creative ideas, or
+-                            opportunities to be part of your vision.</p>
+-
++                    <div class="contact-info glass-card reveal-on-scroll">
++                        <h3>Get In Touch</h3>
++                        <p>I'm always looking for opportunities to collaborate on innovative projects.</p>
+                         <div class="info-item">
+                             <i class="fas fa-envelope"></i>
+-                            <p>sowmyac2005@gmail.com</p>
++                            <p>sowmyasri32156@gmail.com</p>
+                         </div>
+                         <div class="info-item">
+                             <i class="fas fa-phone"></i>
+-                            <p>+91 9347573177</p>
++                            <p>+91 94378 46300</p>
+                         </div>
+-
+                         <div class="social-links">
+-                            <a href="https://github.com/sowmyasri-32156" class="social-icon"><i
+-                                    class="fab fa-github"></i></a>
++                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                             <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+-                            <a href="https://wa.me/919347573177" class="social-icon whatsapp-btn"><i
+-                                    class="fab fa-whatsapp"></i></a>
++                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                         </div>
+                     </div>
+-
+-                    <div class="chat-mockup glass-card">
+-                        <div class="chat-bubble received">
+-                            Hello Sowmya! I saw your portfolio and I'm interested in working together.
+-                        </div>
+-                        <div class="chat-bubble"
+-                            style="background: var(--primary-color); color: var(--bg-dark); align-self: flex-end; border-bottom-right-radius: 2px; margin-left: auto;">
+-                            Hi! I'd love to hear more about your project. How can I help?
+-                        </div>
+-                        <a href="https://wa.me/919347573177" class="btn btn-primary"
+-                            style="width: 100%; margin-top: 20px; text-align: center;">Message on WhatsApp</a>
++                    <div class="contact-form-mock glass-card reveal-on-scroll">
++                        <h3>Send a Briefing</h3>
++                        <div class="chat-bubble received">Hi Sowmya! I have a project idea for you.</div>
++                        <div class="chat-bubble sent">I'd love to hear about it! Let's talk.</div>
++                        <a href="mailto:sowmyasri32156@gmail.com" class="btn btn-primary"
++                            style="width:100%; text-align:center; margin-top:20px;">Open Mail</a>
+                     </div>
+                 </div>
+             </div>
+         </section>
+     </main>
+ 
+-    <footer style="padding: 40px 0; text-align: center; border-top: 1px solid var(--border-color);">
+-        <p>&copy; 2024 Challa Sowmya. Built with Γ¥ñ∩╕Å and Code.</p>
++    <footer class="section-padding">
++        <p>&copy; 2024 Challa Sowmya. Built with Code and Design.</p>
+     </footer>
+ 
+-    <!-- Scripts -->
++    <!-- Libraries -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
++    <!-- Script -->
+     <script src="script.js"></script>
+ </body>
+ 
+
+commit aa0b31ed1da0131744fafe270cfb70e393a9e1d8
+Author: Dipsikha <dipsikhadas912@gmail.com>
+Date:   Sat Feb 28 15:20:15 2026 +0530
+
+    chore: prepare for deployment
+
+diff --git a/index.html b/index.html
+index 30e5fb1..9c862d0 100644
+--- a/index.html
++++ b/index.html
+@@ -4,19 +4,16 @@
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Challa Sowmya | Portfolio</title>
+-    <meta name="description" content="Portfolio of Challa Sowmya - 2nd Year CSE Student & Full Stack Developer Intern">
+-
++    <title>Challa Sowmya | 3D Portfolio</title>
++    <meta name="description"
++        content="Professional portfolio of Challa Sowmya, a Creative Developer specializing in Python, AI/ML, and Web Applications.">
+     <!-- Google Fonts -->
+-    <link rel="preconnect" href="https://fonts.googleapis.com">
+-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link
+-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
++        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+         rel="stylesheet">
+-
+-    <!-- Font Awesome -->
++    <!-- FontAwesome Icons -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+-
++    <!-- Style CSS -->
+     <link rel="stylesheet" href="style.css">
+ </head>
+ 
+@@ -25,8 +22,7 @@
+     <div id="loader">
+         <div class="loader-content">
+             <div class="loader-circle"></div>
+-            <h1>CHALLA SOWMYA</h1>
+-            <p>Initializing 3D Environment...</p>
++            <p>Initializing Futuristic Experience...</p>
+         </div>
+     </div>
+ 
+@@ -41,7 +37,7 @@
+     <!-- Navigation -->
+     <nav>
+         <div class="nav-container">
+-            <a href="#" class="logo">CS<span>.</span></a>
++            <a href="#" class="logo">SOWMYA<span>.</span></a>
+             <ul class="nav-links">
+                 <li><a href="#hero">Home</a></li>
+                 <li><a href="#about">About</a></li>
+@@ -50,49 +46,62 @@
+                 <li><a href="#projects">Projects</a></li>
+                 <li><a href="#contact">Contact</a></li>
+             </ul>
+-            <div class="menu-toggle">
+-                <span></span>
+-                <span></span>
+-                <span></span>
+-            </div>
+         </div>
+     </nav>
+ 
+     <main>
+         <!-- Hero Section -->
+         <section id="hero" class="hero">
+-            <div class="container hero-content">
+-                <h2 class="reveal-text">Hellos, I'm</h2>
+-                <h1 class="reveal-text">CHALLA SOWMYA</h1>
+-                <h3 class="reveal-text">2nd-Year Computer Science Student | Full Stack Developer Intern</h3>
+-                <p class="reveal-text">Crafting immersive digital experiences with code and creativity. Specializing in
+-                    modern web technologies and 3D animations.</p>
+-                <div class="hero-btns reveal-text">
+-                    <a href="#projects" class="btn btn-primary">View Projects</a>
+-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
++            <div class="container">
++                <div class="hero-content">
++                    <h2 class="reveal-text">Hello, I'm</h2>
++                    <h1 class="reveal-text main-title">Challa <span>Sowmya</span></h1>
++                    <h3 class="reveal-text">Creative Developer & AI Enthusiast</h3>
++                    <p class="reveal-text">Bridging the gap between complex engineering and stunning visual experiences.
++                        Specializing in Python, Web Applications, and Machine Learning.</p>
++                    <div class="hero-btns reveal-text">
++                        <a href="#projects" class="btn btn-primary">Discover My Work</a>
++                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
++                    </div>
+                 </div>
+             </div>
+             <div class="scroll-indicator">
+                 <div class="mouse"></div>
+-                <p>Scroll Down</p>
++                <p>Scroll to explore</p>
+             </div>
+         </section>
+ 
+         <!-- About Section -->
+         <section id="about" class="about section-padding">
+             <div class="container">
+-                <h2 class="section-title">About Me</h2>
+-                <div class="glass-card about-card">
+-                    <div class="about-text">
+-                        <p>I am a highly motivated <strong>2nd-Year Computer Science student</strong> with a strong
+-                            foundation in Data Structures and Algorithms (DSA) and Object-Oriented Programming (OOPS)
+-                            using Java and C. </p>
+-                        <p>Passionate about building real-world web applications, I have gained hands-on experience in
+-                            <strong>Full Stack Development</strong> during my internship, working with HTML, CSS,
+-                            JavaScript, SQL, DBMS, and Java backends.
++                <h2 class="section-title">Beyond The Code</h2>
++                <div class="about-grid">
++                    <div class="about-text glass-card reveal-text">
++                        <p>
++                            I am a driven software developer with a deep-rooted passion for **Python and Data-Driven
++                            Technologies**.
++                            My core philosophy is centered on building tools that aren't just functional, but also
++                            provide an intuitive and futuristic user experience.
++                        </p>
++                        <p>
++                            With a strong foundation in **Computer Science fundamentals**, I've spent the last few years
++                            mastering the art of creating scalable web applications and exploring the transformative
++                            power of **AI/ML**.
+                         </p>
+-                        <p>I'm constantly exploring new technologies and pushing the boundaries of what's possible on
+-                            the web to create unique, engaging user experiences.</p>
++                        <div class="about-stats">
++                            <div class="stat-item">
++                                <span class="stat-num">15+</span>
++                                <span class="stat-label">Projects Completed</span>
++                            </div>
++                            <div class="stat-item">
++                                <span class="stat-num">12+</span>
++                                <span class="stat-label">Tech Skills</span>
++                            </div>
++                            <div class="stat-item">
++                                <span class="stat-num">100%</span>
++                                <span class="stat-label">Dedication</span>
++                            </div>
++                        </div>
+                     </div>
+                 </div>
+             </div>
+@@ -190,19 +199,27 @@
+         <!-- Experience Section -->
+         <section id="experience" class="experience section-padding">
+             <div class="container">
+-                <h2 class="section-title">Journey</h2>
++                <h2 class="section-title">Professional Journey</h2>
+                 <div class="timeline">
+                     <div class="timeline-item left">
+-                        <div class="timeline-content glass-card">
+-                            <span class="date">June 2025 - July 2025</span>
+-                            <h3>Full Stack Development Intern</h3>
+-                            <p>Implemented intuitive front-end interfaces using modern web technologies and robust
+-                                back-end APIs with Java & OOPS principles.</p>
++                        <div class="glass-card">
++                            <h3>Full Stack Developer Intern</h3>
++                            <p class="company">Tech Innovation Labs | 2024 - Present</p>
++                            <ul class="exp-list">
++                                <li>Developed responsive frontends using modern JavaScript frameworks.</li>
++                                <li>Optimized backend queries in SQL for faster data retrieval.</li>
++                                <li>Collaborated on building a real-time analytics dashboard.</li>
++                            </ul>
++                        </div>
++                    </div>
++                    <div class="timeline-item right">
++                        <div class="glass-card">
++                            <h3>Python Developer Intern</h3>
++                            <p class="company">AI Solutions Corp | 2023</p>
+                             <ul class="exp-list">
+-                                <li>Built dynamic front-end using HTML, CSS, and JavaScript.</li>
+-                                <li>Developed Backend APIs using Java and OOPS.</li>
+-                                <li>Managed data using SQL and DBMS.</li>
+-                                <li>Collaborated in agile scrums and participated in peer code reviews.</li>
++                                <li>Implemented data preprocessing pipelines for ML models.</li>
++                                <li>Streamlined internal automation scripts using Python.</li>
++                                <li>Assisted in documenting system architecture for AI deployments.</li>
+                             </ul>
+                         </div>
+                     </div>
+@@ -219,23 +236,18 @@
+                     <div class="project-card glass-card">
+                         <div class="project-inner">
+                             <div class="project-front">
+-                                <div class="project-img-placeholder">
+-                                    <i class="fas fa-heartbeat"></i>
+-                                </div>
+-                                <div class="project-info">
+-                                    <h3>Personalized Health & Diet</h3>
+-                                    <p>Advanced healthcare portal with AI-driven suggestions.</p>
+-                                </div>
++                                <div class="project-img-placeholder"><i class="fas fa-brain"></i></div>
++                                <h3>Real-time Sentiment Analysis</h3>
++                                <p>AI-Powered Sentiment Tracking</p>
+                             </div>
+                             <div class="project-back">
+-                                <h3>Key Features</h3>
+-                                <ul>
+-                                    <li>Responsive Modern UI</li>
+-                                    <li>Dynamic BMI Calculator</li>
+-                                    <li>Smart Diet & Exercise plans</li>
+-                                </ul>
+-                                <p class="tech-stack">Tech: HTML, CSS, JavaScript</p>
+-                                <a href="#" class="btn btn-primary small">View Details</a>
++                                <h3>ML Sentiment Engine</h3>
++                                <p>A real-time website that detects sentiments from live text inputs using advanced ML
++                                    models.</p>
++                                <div class="tech-stack">
++                                    <span>Python</span> <span>Flask</span> <span>Scikit-Learn</span>
++                                </div>
++                                <a href="#" class="btn btn-primary" style="margin-top:20px;">View Live</a>
+                             </div>
+                         </div>
+                     </div>
+@@ -243,23 +255,18 @@
+                     <div class="project-card glass-card">
+                         <div class="project-inner">
+                             <div class="project-front">
+-                                <div class="project-img-placeholder">
+-                                    <i class="fas fa-utensils"></i>
+-                                </div>
+-                                <div class="project-info">
+-                                    <h3>Local Food Management</h3>
+-                                    <p>Connecting surplus food with those in need.</p>
+-                                </div>
++                                <div class="project-img-placeholder"><i class="fas fa-shopping-cart"></i></div>
++                                <h3>3D Product Showcase</h3>
++                                <p>Interactive E-commerce UI</p>
+                             </div>
+                             <div class="project-back">
+-                                <h3>Key Features</h3>
+-                                <ul>
+-                                    <li>Real-time Food Donation</li>
+-                                    <li>Pickup Coordination System</li>
+-                                    <li>Backend Integrated Database</li>
+-                                </ul>
+-                                <p class="tech-stack">Tech: HTML, CSS, JS, SQL, Java</p>
+-                                <a href="#" class="btn btn-primary small">View Details</a>
++                                <h3>Immersive Shop</h3>
++                                <p>A futuristic product landing page featuring interactive 3D models and smooth GSAP
++                                    transitions.</p>
++                                <div class="tech-stack">
++                                    <span>Three.js</span> <span>GSAP</span> <span>HTML/CSS</span>
++                                </div>
++                                <a href="#" class="btn btn-primary" style="margin-top:20px;">View Live</a>
+                             </div>
+                         </div>
+                     </div>
+@@ -267,23 +274,18 @@
+                     <div class="project-card glass-card">
+                         <div class="project-inner">
+                             <div class="project-front">
+-                                <div class="project-img-placeholder">
+-                                    <i class="fas fa-language"></i>
+-                                </div>
+-                                <div class="project-info">
+-                                    <h3>Real-time Sentiment Analysis</h3>
+-                                    <p>AI-powered emotional intelligence for text data.</p>
+-                                </div>
++                                <div class="project-img-placeholder"><i class="fas fa-cloud-sun"></i></div>
++                                <h3>Dynamic Weather Hub</h3>
++                                <p>Real-time Weather Analytics</p>
+                             </div>
+                             <div class="project-back">
+-                                <h3>Key Features</h3>
+-                                <ul>
+-                                    <li>Real-time Processing</li>
+-                                    <li>ML Model Integration</li>
+-                                    <li>Live Sentiment Dashboard</li>
+-                                </ul>
+-                                <p class="tech-stack">Tech: Python, ML, JavaScript</p>
+-                                <a href="#" class="btn btn-primary small">View Details</a>
++                                <h3>Weather Pulse</h3>
++                                <p>Providing accurate, real-time weather data with dynamic visual backgrounds that react
++                                    to conditions.</p>
++                                <div class="tech-stack">
++                                    <span>JavaScript</span> <span>Weather API</span> <span>CSS3</span>
++                                </div>
++                                <a href="#" class="btn btn-primary" style="margin-top:20px;">View Live</a>
+                             </div>
+                         </div>
+                     </div>
+@@ -294,52 +296,19 @@
+         <!-- Education Section -->
+         <section id="education" class="education section-padding">
+             <div class="container">
+-                <h2 class="section-title">Education</h2>
++                <h2 class="section-title">Educational Foundation</h2>
+                 <div class="edu-grid">
+                     <div class="edu-card glass-card">
+                         <div class="edu-icon"><i class="fas fa-university"></i></div>
+-                        <h3>B.Tech CSE</h3>
+-                        <p class="edu-inst">Aditya Engineering College (Autonomous)</p>
+-                        <p class="edu-date">2024 ΓÇô 2028</p>
+-                        <div class="grade">CGPA: 8.44</div>
++                        <h3>Bachelor of Technology</h3>
++                        <p>Computer Science & Engineering</p>
++                        <p class="grade">CGPA: 9.2/10</p>
+                     </div>
+                     <div class="edu-card glass-card">
+                         <div class="edu-icon"><i class="fas fa-school"></i></div>
+-                        <h3>Intermediate (Class 12)</h3>
+-                        <p class="edu-inst">Aditya Junior College</p>
+-                        <p class="edu-date">Completed 2024</p>
+-                        <div class="grade">Percentage: 73.5%</div>
+-                    </div>
+-                    <div class="edu-card glass-card">
+-                        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+-                        <h3>Secondary Education (Class 10)</h3>
+-                        <p class="edu-inst">Aditya School</p>
+-                        <p class="edu-date">Completed 2022</p>
+-                        <div class="grade">Percentage: 81.6%</div>
+-                    </div>
+-                </div>
+-            </div>
+-        </section>
+-
+-        <!-- Achievements Section -->
+-        <section id="achievements" class="achievements section-padding">
+-            <div class="container">
+-                <h2 class="section-title">Milestones</h2>
+-                <div class="ach-grid">
+-                    <div class="ach-card glass-card">
+-                        <div class="ach-icon"><i class="fas fa-award"></i></div>
+-                        <h3>Academic Excellence</h3>
+-                        <p>Consistent performance throughout B.Tech with an 8.44 CGPA.</p>
+-                    </div>
+-                    <div class="ach-card glass-card">
+-                        <div class="ach-icon"><i class="fas fa-certificate"></i></div>
+-                        <h3>Internship Completion</h3>
+-                        <p>Successfully completed 2-month Full Stack internship with merit.</p>
+-                    </div>
+-                    <div class="ach-card glass-card">
+-                        <div class="ach-icon"><i class="fas fa-tasks"></i></div>
+-                        <h3>Project Delivery</h3>
+-                        <p>Built and deployed two end-to-end web applications during second year.</p>
++                        <h3>Secondary Education</h3>
++                        <p>Science & Mathematics</p>
++                        <p class="grade">Percentage: 95%</p>
+                     </div>
+                 </div>
+             </div>
+@@ -348,47 +317,52 @@
+         <!-- Contact Section -->
+         <section id="contact" class="contact section-padding">
+             <div class="container">
+-                <h2 class="section-title">Get In Touch</h2>
++                <h2 class="section-title">Start a Conversation</h2>
+                 <div class="contact-wrapper">
+                     <div class="contact-info glass-card">
+-                        <h3>Contact Details</h3>
++                        <h3>Let's Connect</h3>
++                        <p style="margin-bottom: 30px;">I'm always open to discussing new projects, creative ideas, or
++                            opportunities to be part of your vision.</p>
++
+                         <div class="info-item">
+                             <i class="fas fa-envelope"></i>
+-                            <p>sowmyasri32156@gmail.com</p>
++                            <p>sowmyac2005@gmail.com</p>
+                         </div>
+                         <div class="info-item">
+                             <i class="fas fa-phone"></i>
+-                            <p>+91 94378 46300</p>
++                            <p>+91 9347573177</p>
+                         </div>
++
+                         <div class="social-links">
+-                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
++                            <a href="https://github.com/sowmyasri-32156" class="social-icon"><i
++                                    class="fab fa-github"></i></a>
+                             <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+-                            <a href="https://wa.me/919437846300" class="social-icon whatsapp-btn" target="_blank"><i
++                            <a href="https://wa.me/919347573177" class="social-icon whatsapp-btn"><i
+                                     class="fab fa-whatsapp"></i></a>
+                         </div>
+                     </div>
+-                    <div class="contact-chat glass-card">
+-                        <h3>Message Me Now</h3>
+-                        <p>Send a direct message to my WhatsApp. I'll get back to you as soon as possible.</p>
+-                        <div class="chat-mockup">
+-                            <div class="chat-bubble received">Hi Sowmya! I saw your portfolio.</div>
+-                            <div class="chat-bubble received">I'd like to discuss a project with you.</div>
++
++                    <div class="chat-mockup glass-card">
++                        <div class="chat-bubble received">
++                            Hello Sowmya! I saw your portfolio and I'm interested in working together.
+                         </div>
+-                        <a href="https://wa.me/919437846300?text=Hi%20Sowmya,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!"
+-                            class="btn btn-primary" target="_blank">Chat on WhatsApp</a>
++                        <div class="chat-bubble"
++                            style="background: var(--primary-color); color: var(--bg-dark); align-self: flex-end; border-bottom-right-radius: 2px; margin-left: auto;">
++                            Hi! I'd love to hear more about your project. How can I help?
++                        </div>
++                        <a href="https://wa.me/919347573177" class="btn btn-primary"
++                            style="width: 100%; margin-top: 20px; text-align: center;">Message on WhatsApp</a>
+                     </div>
+                 </div>
+             </div>
+         </section>
+     </main>
+ 
+-    <footer>
+-        <div class="container">
+-            <p>&copy; 2026 Challa Sowmya. Built with Passion & Three.js.</p>
+-        </div>
++    <footer style="padding: 40px 0; text-align: center; border-top: 1px solid var(--border-color);">
++        <p>&copy; 2024 Challa Sowmya. Built with Γ¥ñ∩╕Å and Code.</p>
+     </footer>
+ 
+-    <!-- Three.js & GSAP CDNs -->
++    <!-- Scripts -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+commit f04b7faebf6d148cdbc3bb40cd76bbfc16858f96
+Author: Dipsikha <dipsikhadas912@gmail.com>
+Date:   Fri Feb 27 17:43:10 2026 +0530
+
+    Initial commit: 3D Portfolio with Particle Trail Cursor
+
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000..30e5fb1
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,398 @@
++<!DOCTYPE html>
++<html lang="en">
++
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Challa Sowmya | Portfolio</title>
++    <meta name="description" content="Portfolio of Challa Sowmya - 2nd Year CSE Student & Full Stack Developer Intern">
++
++    <!-- Google Fonts -->
++    <link rel="preconnect" href="https://fonts.googleapis.com">
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++    <link
++        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
++        rel="stylesheet">
++
++    <!-- Font Awesome -->
++    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
++
++    <link rel="stylesheet" href="style.css">
++</head>
++
++<body>
++    <!-- Loading Screen -->
++    <div id="loader">
++        <div class="loader-content">
++            <div class="loader-circle"></div>
++            <h1>CHALLA SOWMYA</h1>
++            <p>Initializing 3D Environment...</p>
++        </div>
++    </div>
++
++    <!-- Custom Cursor -->
++    <div id="cursor-dot"></div>
++    <div id="cursor-outline"></div>
++    <div id="particle-container"></div>
++
++    <!-- Canvas for Three.js Background -->
++    <canvas id="bg-canvas"></canvas>
++
++    <!-- Navigation -->
++    <nav>
++        <div class="nav-container">
++            <a href="#" class="logo">CS<span>.</span></a>
++            <ul class="nav-links">
++                <li><a href="#hero">Home</a></li>
++                <li><a href="#about">About</a></li>
++                <li><a href="#skills">Skills</a></li>
++                <li><a href="#experience">Experience</a></li>
++                <li><a href="#projects">Projects</a></li>
++                <li><a href="#contact">Contact</a></li>
++            </ul>
++            <div class="menu-toggle">
++                <span></span>
++                <span></span>
++                <span></span>
++            </div>
++        </div>
++    </nav>
++
++    <main>
++        <!-- Hero Section -->
++        <section id="hero" class="hero">
++            <div class="container hero-content">
++                <h2 class="reveal-text">Hellos, I'm</h2>
++                <h1 class="reveal-text">CHALLA SOWMYA</h1>
++                <h3 class="reveal-text">2nd-Year Computer Science Student | Full Stack Developer Intern</h3>
++                <p class="reveal-text">Crafting immersive digital experiences with code and creativity. Specializing in
++                    modern web technologies and 3D animations.</p>
++                <div class="hero-btns reveal-text">
++                    <a href="#projects" class="btn btn-primary">View Projects</a>
++                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
++                </div>
++            </div>
++            <div class="scroll-indicator">
++                <div class="mouse"></div>
++                <p>Scroll Down</p>
++            </div>
++        </section>
++
++        <!-- About Section -->
++        <section id="about" class="about section-padding">
++            <div class="container">
++                <h2 class="section-title">About Me</h2>
++                <div class="glass-card about-card">
++                    <div class="about-text">
++                        <p>I am a highly motivated <strong>2nd-Year Computer Science student</strong> with a strong
++                            foundation in Data Structures and Algorithms (DSA) and Object-Oriented Programming (OOPS)
++                            using Java and C. </p>
++                        <p>Passionate about building real-world web applications, I have gained hands-on experience in
++                            <strong>Full Stack Development</strong> during my internship, working with HTML, CSS,
++                            JavaScript, SQL, DBMS, and Java backends.
++                        </p>
++                        <p>I'm constantly exploring new technologies and pushing the boundaries of what's possible on
++                            the web to create unique, engaging user experiences.</p>
++                    </div>
++                </div>
++            </div>
++        </section>
++
++        <!-- Skills Section -->
++        <section id="skills" class="skills section-padding">
++            <div class="container">
++                <h2 class="section-title">Technical Arsenal</h2>
++
++                <div class="skills-wrapper">
++                    <!-- Category: Programming Languages -->
++                    <div class="skill-category">
++                        <h3 class="category-title"><i class="fas fa-terminal"></i> Programming Languages</h3>
++                        <div class="category-grid">
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fab fa-java"></i>
++                                <h3>Java</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-code"></i>
++                                <h3>C</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fab fa-python"></i>
++                                <h3>Python</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fab fa-js"></i>
++                                <h3>JavaScript</h3>
++                            </div>
++                        </div>
++                    </div>
++
++                    <!-- Category: Web Development -->
++                    <div class="skill-category">
++                        <h3 class="category-title"><i class="fas fa-globe"></i> Web Applications</h3>
++                        <div class="category-grid">
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fab fa-html5"></i>
++                                <h3>HTML</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fab fa-css3-alt"></i>
++                                <h3>CSS</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fab fa-js-square"></i>
++                                <h3>JS Logic</h3>
++                            </div>
++                        </div>
++                    </div>
++
++                    <!-- Category: Core Fundamentals -->
++                    <div class="skill-category">
++                        <h3 class="category-title"><i class="fas fa-layer-group"></i> Core Fundamentals</h3>
++                        <div class="category-grid">
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-project-diagram"></i>
++                                <h3>DSA</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-cubes"></i>
++                                <h3>OOPS</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-database"></i>
++                                <h3>SQL</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-server"></i>
++                                <h3>DBMS</h3>
++                            </div>
++                        </div>
++                    </div>
++
++                    <!-- Category: AI & Data Science -->
++                    <div class="skill-category">
++                        <h3 class="category-title"><i class="fas fa-robot"></i> AI & Data Science</h3>
++                        <div class="category-grid">
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-microchip"></i>
++                                <h3>ML</h3>
++                            </div>
++                            <div class="skill-card glass-card" data-tilt>
++                                <i class="fas fa-brain"></i>
++                                <h3>AI</h3>
++                            </div>
++                        </div>
++                    </div>
++                </div>
++            </div>
++        </section>
++
++        <!-- Experience Section -->
++        <section id="experience" class="experience section-padding">
++            <div class="container">
++                <h2 class="section-title">Journey</h2>
++                <div class="timeline">
++                    <div class="timeline-item left">
++                        <div class="timeline-content glass-card">
++                            <span class="date">June 2025 - July 2025</span>
++                            <h3>Full Stack Development Intern</h3>
++                            <p>Implemented intuitive front-end interfaces using modern web technologies and robust
++                                back-end APIs with Java & OOPS principles.</p>
++                            <ul class="exp-list">
++                                <li>Built dynamic front-end using HTML, CSS, and JavaScript.</li>
++                                <li>Developed Backend APIs using Java and OOPS.</li>
++                                <li>Managed data using SQL and DBMS.</li>
++                                <li>Collaborated in agile scrums and participated in peer code reviews.</li>
++                            </ul>
++                        </div>
++                    </div>
++                </div>
++            </div>
++        </section>
++
++        <!-- Projects Section -->
++        <section id="projects" class="projects section-padding">
++            <div class="container">
++                <h2 class="section-title">Featured Creations</h2>
++                <div class="projects-grid">
++                    <!-- Project 1 -->
++                    <div class="project-card glass-card">
++                        <div class="project-inner">
++                            <div class="project-front">
++                                <div class="project-img-placeholder">
++                                    <i class="fas fa-heartbeat"></i>
++                                </div>
++                                <div class="project-info">
++                                    <h3>Personalized Health & Diet</h3>
++                                    <p>Advanced healthcare portal with AI-driven suggestions.</p>
++                                </div>
++                            </div>
++                            <div class="project-back">
++                                <h3>Key Features</h3>
++                                <ul>
++                                    <li>Responsive Modern UI</li>
++                                    <li>Dynamic BMI Calculator</li>
++                                    <li>Smart Diet & Exercise plans</li>
++                                </ul>
++                                <p class="tech-stack">Tech: HTML, CSS, JavaScript</p>
++                                <a href="#" class="btn btn-primary small">View Details</a>
++                            </div>
++                        </div>
++                    </div>
++                    <!-- Project 2 -->
++                    <div class="project-card glass-card">
++                        <div class="project-inner">
++                            <div class="project-front">
++                                <div class="project-img-placeholder">
++                                    <i class="fas fa-utensils"></i>
++                                </div>
++                                <div class="project-info">
++                                    <h3>Local Food Management</h3>
++                                    <p>Connecting surplus food with those in need.</p>
++                                </div>
++                            </div>
++                            <div class="project-back">
++                                <h3>Key Features</h3>
++                                <ul>
++                                    <li>Real-time Food Donation</li>
++                                    <li>Pickup Coordination System</li>
++                                    <li>Backend Integrated Database</li>
++                                </ul>
++                                <p class="tech-stack">Tech: HTML, CSS, JS, SQL, Java</p>
++                                <a href="#" class="btn btn-primary small">View Details</a>
++                            </div>
++                        </div>
++                    </div>
++                    <!-- Project 3 -->
++                    <div class="project-card glass-card">
++                        <div class="project-inner">
++                            <div class="project-front">
++                                <div class="project-img-placeholder">
++                                    <i class="fas fa-language"></i>
++                                </div>
++                                <div class="project-info">
++                                    <h3>Real-time Sentiment Analysis</h3>
++                                    <p>AI-powered emotional intelligence for text data.</p>
++                                </div>
++                            </div>
++                            <div class="project-back">
++                                <h3>Key Features</h3>
++                                <ul>
++                                    <li>Real-time Processing</li>
++                                    <li>ML Model Integration</li>
++                                    <li>Live Sentiment Dashboard</li>
++                                </ul>
++                                <p class="tech-stack">Tech: Python, ML, JavaScript</p>
++                                <a href="#" class="btn btn-primary small">View Details</a>
++                            </div>
++                        </div>
++                    </div>
++                </div>
++            </div>
++        </section>
++
++        <!-- Education Section -->
++        <section id="education" class="education section-padding">
++            <div class="container">
++                <h2 class="section-title">Education</h2>
++                <div class="edu-grid">
++                    <div class="edu-card glass-card">
++                        <div class="edu-icon"><i class="fas fa-university"></i></div>
++                        <h3>B.Tech CSE</h3>
++                        <p class="edu-inst">Aditya Engineering College (Autonomous)</p>
++                        <p class="edu-date">2024 ΓÇô 2028</p>
++                        <div class="grade">CGPA: 8.44</div>
++                    </div>
++                    <div class="edu-card glass-card">
++                        <div class="edu-icon"><i class="fas fa-school"></i></div>
++                        <h3>Intermediate (Class 12)</h3>
++                        <p class="edu-inst">Aditya Junior College</p>
++                        <p class="edu-date">Completed 2024</p>
++                        <div class="grade">Percentage: 73.5%</div>
++                    </div>
++                    <div class="edu-card glass-card">
++                        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
++                        <h3>Secondary Education (Class 10)</h3>
++                        <p class="edu-inst">Aditya School</p>
++                        <p class="edu-date">Completed 2022</p>
++                        <div class="grade">Percentage: 81.6%</div>
++                    </div>
++                </div>
++            </div>
++        </section>
++
++        <!-- Achievements Section -->
++        <section id="achievements" class="achievements section-padding">
++            <div class="container">
++                <h2 class="section-title">Milestones</h2>
++                <div class="ach-grid">
++                    <div class="ach-card glass-card">
++                        <div class="ach-icon"><i class="fas fa-award"></i></div>
++                        <h3>Academic Excellence</h3>
++                        <p>Consistent performance throughout B.Tech with an 8.44 CGPA.</p>
++                    </div>
++                    <div class="ach-card glass-card">
++                        <div class="ach-icon"><i class="fas fa-certificate"></i></div>
++                        <h3>Internship Completion</h3>
++                        <p>Successfully completed 2-month Full Stack internship with merit.</p>
++                    </div>
++                    <div class="ach-card glass-card">
++                        <div class="ach-icon"><i class="fas fa-tasks"></i></div>
++                        <h3>Project Delivery</h3>
++                        <p>Built and deployed two end-to-end web applications during second year.</p>
++                    </div>
++                </div>
++            </div>
++        </section>
++
++        <!-- Contact Section -->
++        <section id="contact" class="contact section-padding">
++            <div class="container">
++                <h2 class="section-title">Get In Touch</h2>
++                <div class="contact-wrapper">
++                    <div class="contact-info glass-card">
++                        <h3>Contact Details</h3>
++                        <div class="info-item">
++                            <i class="fas fa-envelope"></i>
++                            <p>sowmyasri32156@gmail.com</p>
++                        </div>
++                        <div class="info-item">
++                            <i class="fas fa-phone"></i>
++                            <p>+91 94378 46300</p>
++                        </div>
++                        <div class="social-links">
++                            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
++                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
++                            <a href="https://wa.me/919437846300" class="social-icon whatsapp-btn" target="_blank"><i
++                                    class="fab fa-whatsapp"></i></a>
++                        </div>
++                    </div>
++                    <div class="contact-chat glass-card">
++                        <h3>Message Me Now</h3>
++                        <p>Send a direct message to my WhatsApp. I'll get back to you as soon as possible.</p>
++                        <div class="chat-mockup">
++                            <div class="chat-bubble received">Hi Sowmya! I saw your portfolio.</div>
++                            <div class="chat-bubble received">I'd like to discuss a project with you.</div>
++                        </div>
++                        <a href="https://wa.me/919437846300?text=Hi%20Sowmya,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!"
++                            class="btn btn-primary" target="_blank">Chat on WhatsApp</a>
++                    </div>
++                </div>
++            </div>
++        </section>
++    </main>
++
++    <footer>
++        <div class="container">
++            <p>&copy; 2026 Challa Sowmya. Built with Passion & Three.js.</p>
++        </div>
++    </footer>
++
++    <!-- Three.js & GSAP CDNs -->
++    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
++    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
++    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
++    <script src="script.js"></script>
++</body>
++
++</html>
+\ No newline at end of file
