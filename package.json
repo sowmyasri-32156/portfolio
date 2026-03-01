@@ -4,10 +4,10 @@
     "description": "Modern 3D Portfolio for Challa Sowmya",
     "main": "index.html",
     "scripts": {
-        "dev": "serve ."
+        "dev": "npx serve ."
     },
     "keywords": [],
-    "author": "Challa Sowmya",
+    "author": "Sowmya Challa",
     "license": "ISC",
     "devDependencies": {
         "serve": "^14.2.5"

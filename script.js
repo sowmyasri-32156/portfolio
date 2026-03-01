@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // --- GLOBAL VARIABLES ---
 let mouseX = 0, mouseY = 0;
-let scene, camera, renderer, particles, mainMesh;
+let scene, camera, renderer, particles, linesMesh;
 
 // --- LOADER ---
 window.addEventListener('load', () => {
@@ -63,48 +63,56 @@ function initThree() {
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // Main Floating Object (Wireframe Sphere)
-    const geometry = new THREE.IcosahedronGeometry(2, 4);
-    const material = new THREE.MeshBasicMaterial({
-        color: 0x00f2ff,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.15
-    });
-    mainMesh = new THREE.Mesh(geometry, material);
-    scene.add(mainMesh);
+    // Particle Network (Constellation)
+    const particlesCount = 350;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particlesCount * 3);
+    const velocities = [];
 
-    // Particle Field
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 3000;
-    const posArray = new Float32Array(particlesCount * 3);
+    for (let i = 0; i < particlesCount; i++) {
+        // Spread particles across a wide area
+        positions[i * 3] = (Math.random() - 0.5) * 25;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 25;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 15 - 2;
 
-    for (let i = 0; i < particlesCount * 3; i++) {
-        posArray[i] = (Math.random() - 0.5) * 15;
+        // Random slow velocities
+        velocities.push({
+            x: (Math.random() - 0.5) * 0.015,
+            y: (Math.random() - 0.5) * 0.015,
+            z: (Math.random() - 0.5) * 0.015
+        });
     }
 
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.005,
-        color: 0xffffff,
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.userData = { velocities };
+
+    const material = new THREE.PointsMaterial({
+        size: 0.06,
+        color: 0x00f2ff, // Neon Cyan
         transparent: true,
-        opacity: 0.3,
+        opacity: 0.8,
         blending: THREE.AdditiveBlending
     });
 
-    particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    particles = new THREE.Points(geometry, material);
     scene.add(particles);
 
-    // Light-like behavior for sphere
-    const secondaryGeo = new THREE.SphereGeometry(2.1, 4, 4);
-    const secondaryMat = new THREE.MeshBasicMaterial({
-        color: 0x7000ff,
-        wireframe: true,
+    // Lines for the constellation
+    const lineMaterial = new THREE.LineBasicMaterial({
+        color: 0xb14bf4, // Neon Purple
         transparent: true,
-        opacity: 0.05
+        opacity: 0.15,
+        blending: THREE.AdditiveBlending
     });
-    const secondaryMesh = new THREE.Mesh(secondaryGeo, secondaryMat);
-    mainMesh.add(secondaryMesh);
+
+    // Create an initial empty buffer for lines
+    const lineGeometry = new THREE.BufferGeometry();
+    const maxConnections = particlesCount * 6; // generous buffer 
+    const linePositions = new Float32Array(maxConnections * 3 * 2);
+    lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+
+    linesMesh = new THREE.LineSegments(lineGeometry, lineMaterial);
+    scene.add(linesMesh);
 
     animateThree();
 }
@@ -112,17 +120,59 @@ function initThree() {
 function animateThree() {
     requestAnimationFrame(animateThree);
 
-    // Rotating Objects
-    mainMesh.rotation.y += 0.001;
-    mainMesh.rotation.x += 0.0005;
-    particles.rotation.y -= 0.0002;
+    // Update particles positions based on velocity
+    const positions = particles.geometry.attributes.position.array;
+    const velocities = particles.geometry.userData.velocities;
 
-    // Mouse Influence (Floating movement)
+    for (let i = 0; i < positions.length / 3; i++) {
+        positions[i * 3] += velocities[i].x;
+        positions[i * 3 + 1] += velocities[i].y;
+        positions[i * 3 + 2] += velocities[i].z;
+
+        // Bounce off invisible walls
+        if (Math.abs(positions[i * 3]) > 12) velocities[i].x *= -1;
+        if (Math.abs(positions[i * 3 + 1]) > 12) velocities[i].y *= -1;
+        if (Math.abs(positions[i * 3 + 2] + 2) > 8) velocities[i].z *= -1;
+    }
+    particles.geometry.attributes.position.needsUpdate = true;
+
+    // Update connecting lines based on distance
+    let lineIndex = 0;
+    const linePositions = linesMesh.geometry.attributes.position.array;
+
+    for (let i = 0; i < positions.length / 3; i++) {
+        for (let j = i + 1; j < positions.length / 3; j++) {
+            const dx = positions[i * 3] - positions[j * 3];
+            const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
+            const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
+            const distSq = dx * dx + dy * dy + dz * dz;
+
+            // Connect if close enough (distance threshold)
+            if (distSq < 4) {
+                linePositions[lineIndex++] = positions[i * 3];
+                linePositions[lineIndex++] = positions[i * 3 + 1];
+                linePositions[lineIndex++] = positions[i * 3 + 2];
+                linePositions[lineIndex++] = positions[j * 3];
+                linePositions[lineIndex++] = positions[j * 3 + 1];
+                linePositions[lineIndex++] = positions[j * 3 + 2];
+            }
+        }
+    }
+
+    // Zero out the rest of the array to prevent artifact lines
+    for (let i = lineIndex; i < linePositions.length; i++) {
+        linePositions[i] = 0;
+    }
+
+    linesMesh.geometry.attributes.position.needsUpdate = true;
+    linesMesh.geometry.setDrawRange(0, lineIndex / 3);
+
+    // Mouse Influence - subtle rotation of the entire scene
     const mX = (mouseX / window.innerWidth - 0.5) * 2;
     const mY = (mouseY / window.innerHeight - 0.5) * 2;
 
-    mainMesh.position.x += (mX * 0.5 - mainMesh.position.x) * 0.05;
-    mainMesh.position.y += (-mY * 0.5 - mainMesh.position.y) * 0.05;
+    scene.rotation.x += (mY * 0.15 - scene.rotation.x) * 0.05;
+    scene.rotation.y += (mX * 0.15 - scene.rotation.y) * 0.05;
 
     renderer.render(scene, camera);
 }
@@ -178,7 +228,7 @@ function initGSAP() {
     // Skills Stagger
     gsap.from('.skill-card', {
         scrollTrigger: {
-            trigger: '.skills-grid',
+            trigger: '.skills-wrapper',
             start: 'top 80%'
         },
         scale: 0.5,
@@ -186,6 +236,19 @@ function initGSAP() {
         duration: 0.6,
         stagger: 0.1,
         ease: 'back.out(1.2)'
+    });
+
+    // Continuous Floating Micro-Animations
+    gsap.utils.toArray('.skill-card, .project-card-container').forEach(card => {
+        gsap.to(card, {
+            y: "-=15",
+            rotation: () => Math.random() * 2 - 1, // subtle twist
+            duration: 2.5 + Math.random(),
+            yoyo: true,
+            repeat: -1,
+            ease: "sine.inOut",
+            delay: Math.random() // random start offsets
+        });
     });
 }
 

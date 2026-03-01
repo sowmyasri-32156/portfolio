@@ -1,13 +1,20 @@
 /* --- CSS DESIGN SYSTEM --- */
 :root {
     --primary-color: #00f2ff;
-    --secondary-color: #7000ff;
-    --bg-dark: #050505;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --border-color: rgba(255, 255, 255, 0.1);
-    --text-main: #e0e0e0;
-    --text-dim: #a0a0a0;
-    --accent-glow: 0 0 15px rgba(0, 242, 255, 0.5);
+    /* Neon Cyan */
+    --secondary-color: #b14bf4;
+    /* Neon Purple */
+    --bg-dark: #07090f;
+    /* Deep Night Blue */
+    --card-bg: rgba(20, 25, 35, 0.5);
+    /* Frosted dark glass */
+    --border-color: rgba(255, 255, 255, 0.08);
+    /* Soft light border */
+    --text-main: #f8f9fa;
+    /* Bright white text */
+    --text-dim: #adb5bd;
+    /* Dimmer text */
+    --accent-glow: 0 5px 20px rgba(0, 242, 255, 0.25);
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'Outfit', sans-serif;
 }
@@ -111,8 +118,8 @@ canvas#bg-canvas {
 
 /* --- CURSOR --- */
 #cursor-dot {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     background-color: var(--primary-color);
     border-radius: 50%;
     position: fixed;
@@ -125,21 +132,23 @@ canvas#bg-canvas {
 #cursor-outline {
     width: 40px;
     height: 40px;
-    border: 1.5px solid rgba(0, 242, 255, 0.5);
+    border: 2px solid var(--primary-color);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.5), inset 0 0 10px rgba(0, 242, 255, 0.3);
+    transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
 }
 
 body.cursor-hover #cursor-outline {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background-color: rgba(0, 242, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.8);
-    border-width: 1px;
+    border-color: var(--secondary-color);
+    border-width: 2px;
+    box-shadow: 0 0 30px rgba(177, 75, 244, 0.6), inset 0 0 15px rgba(177, 75, 244, 0.4);
 }
 
 /* --- NAVIGATION --- */
@@ -149,8 +158,8 @@ nav {
     width: 100%;
     padding: 20px 0;
     z-index: 1000;
-    background: rgba(5, 5, 5, 0.2);
-    backdrop-filter: blur(10px);
+    background: rgba(7, 9, 15, 0.7);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -168,7 +177,7 @@ nav {
     font-size: 1.8rem;
     font-weight: 700;
     text-decoration: none;
-    color: #fff;
+    color: var(--text-main);
 }
 
 .logo span {
@@ -204,25 +213,28 @@ nav {
 .menu-toggle span {
     width: 30px;
     height: 2px;
-    background-color: #fff;
+    background-color: var(--text-main);
     transition: 0.3s;
 }
 
 /* --- GLASS CARD SYSTEM --- */
 .glass-card {
     background: var(--card-bg);
-    backdrop-filter: blur(15px);
-    border: 1px solid var(--border-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 30px;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .glass-card:hover {
     border-color: rgba(0, 242, 255, 0.4);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 255, 0.1);
+    box-shadow: 0 15px 45px rgba(0, 242, 255, 0.15), 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
 }
 
 /* --- HERO SECTION --- */
@@ -247,7 +259,7 @@ nav {
 .hero-content h1 span {
     color: transparent;
     -webkit-text-stroke: 1.5px var(--primary-color);
-    text-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+    text-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
 }
 
 .hero-content h2 {
@@ -287,25 +299,27 @@ nav {
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: #fff;
     box-shadow: 0 5px 15px rgba(0, 242, 255, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 242, 255, 0.5);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 242, 255, 0.5);
 }
 
 .btn-secondary {
     background: transparent;
-    color: #fff;
-    border: 1px solid var(--primary-color);
+    color: var(--text-main);
+    border: 2px solid var(--primary-color);
 }
 
 .btn-secondary:hover {
-    background: rgba(0, 242, 255, 0.1);
-    transform: translateY(-3px);
+    background: var(--primary-color);
+    color: #fff;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 242, 255, 0.3);
 }
 
 /* --- SKILLS GRID --- */
@@ -347,8 +361,8 @@ nav {
     font-size: 3rem;
     margin-bottom: 20px;
     color: var(--primary-color);
-    filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.4));
-    transition: transform 0.3s;
+    filter: drop-shadow(0 5px 15px rgba(0, 242, 255, 0.3));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .skill-card:hover i {
@@ -443,7 +457,8 @@ nav {
 
 .project-back {
     transform: rotateY(180deg);
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(10, 15, 25, 0.9);
+    border: 1px solid var(--primary-color);
     overflow-y: auto;
 }
 
@@ -463,10 +478,12 @@ nav {
 
 .tech-tags span {
     font-size: 0.8rem;
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
-    background: rgba(0, 242, 255, 0.1);
-    border: 1px solid rgba(0, 242, 255, 0.2);
+    background: rgba(0, 242, 255, 0.15);
+    color: var(--text-main);
+    font-weight: 500;
+    border: 1px solid rgba(0, 242, 255, 0.3);
 }
 
 /* --- EDUCATION & ACHIEVEMENTS --- */
@@ -537,8 +554,9 @@ nav {
 
 .social-icon:hover {
     background: var(--primary-color);
-    color: var(--bg-dark);
-    transform: translateY(-5px);
+    color: #fff;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 242, 255, 0.3);
 }
 
 .chat-bubble {
@@ -589,7 +607,7 @@ footer {
         right: -100%;
         width: 100%;
         height: 100vh;
-        background: rgba(5, 5, 5, 0.95);
+        background: rgba(7, 9, 15, 0.98);
         display: flex;
         flex-direction: column;
         justify-content: center;
