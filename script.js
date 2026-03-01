@@ -225,17 +225,19 @@ function initGSAP() {
         });
     });
 
-    // Skills Stagger
-    gsap.from('.skill-card', {
-        scrollTrigger: {
-            trigger: '.skills-wrapper',
-            start: 'top 80%'
-        },
-        scale: 0.5,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'back.out(1.2)'
+    // Skills Stagger per category
+    gsap.utils.toArray('.skill-category').forEach(category => {
+        gsap.from(category.querySelectorAll('.skill-card'), {
+            scrollTrigger: {
+                trigger: category,
+                start: 'top 85%'
+            },
+            scale: 0.5,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'back.out(1.2)'
+        });
     });
 
     // Continuous Floating Micro-Animations
