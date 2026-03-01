@@ -230,7 +230,8 @@ function initGSAP() {
         gsap.from(category.querySelectorAll('.skill-card'), {
             scrollTrigger: {
                 trigger: category,
-                start: 'top 85%'
+                start: 'top 85%',
+                once: true
             },
             scale: 0.5,
             opacity: 0,
@@ -252,6 +253,9 @@ function initGSAP() {
             delay: Math.random() // random start offsets
         });
     });
+
+    // Refresh ScrollTrigger to recalculate positions now that the loader is gone
+    ScrollTrigger.refresh();
 }
 
 // --- 3D TILT EFFECT (VANILLA) ---
